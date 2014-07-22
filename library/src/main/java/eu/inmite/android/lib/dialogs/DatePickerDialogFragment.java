@@ -13,6 +13,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import eu.inmite.android.lib.custom.CustomDatePicker;
+
 /**
  * Dialog with a date picker. Implement {@link eu.inmite.android.lib.dialogs.IDateDialogListener} or {@link eu.inmite.android.lib.dialogs.IDateDialogCancelListener} to handle events.
  */
@@ -25,7 +27,7 @@ public class DatePickerDialogFragment extends BaseDialogFragment {
     protected static final String ARG_DATE = "date";
     protected static final String ARG_24H = "24h";
 
-    DatePicker mDatePicker;
+    CustomDatePicker mDatePicker;
     Calendar mCalendar;
 
     private int mRequestCode;
@@ -113,7 +115,7 @@ public class DatePickerDialogFragment extends BaseDialogFragment {
                 }
             });
         }
-        mDatePicker = (DatePicker) LayoutInflater.from(getActivity()).inflate(R.layout.dialog_part_datepicker, null);
+        mDatePicker = (CustomDatePicker) LayoutInflater.from(getActivity()).inflate(R.layout.dialog_part_datepicker, null);
         builder.setView(mDatePicker);
 
         TimeZone zone = TimeZone.getTimeZone(getArguments().getString(ARG_ZONE));
